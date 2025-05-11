@@ -206,7 +206,7 @@ void getUserInput(Vector<string>& board, int& score) {
 	}
 }
 
-// Simple bfs, searching for target word inside board
+// Simple dfs, searching for target word inside board
 bool dfs(Vector<string>& board, string& target, int index, int row, int col, Vector<pair<int, int>>& path) {
 	if (index == target.size()) return true;
 	if (row < 0 || row >= board.size() || col < 0 || col >= board[0].size()) return false;
