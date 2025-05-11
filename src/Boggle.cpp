@@ -52,7 +52,6 @@ const int DELAY = 300;
 void welcome();
 void giveInstructions();
 void playGame();
-void getGameData();
 void shuffleVector(Vector<string>&);
 void labelBoard(Vector<string>);
 void stringToUpper(string&);
@@ -62,6 +61,7 @@ void searchAllWordFromCell(Vector<string>&, int, int, Set<string>&);
 void findAllWords(Vector<string>&, int&);
 void highlightPath(Vector<pair<int, int>>&);
 void decideWinner(int, int);
+int countComputersScore(Set<string>&);
 int usersTurn(Vector<string>&);
 int computersTurn(Vector<string>&);
 bool tryWord(Vector<string>&, string, Vector<pair<int, int>>&);
@@ -131,10 +131,15 @@ void findAllWords(Vector<string>& board, int& score) {
 			searchAllWordFromCell(board, i, j, words);
 		}
 	}
+	countComputersScore(words);
+}
+int countComputersScore(Set<string>& words) {
+	int score = 0;
 	for (const string& word : words) {
 		score += word.size() - 3;
 		recordWordForPlayer(word, Player::COMPUTER);
 	}
+	return score;
 }
 
 void searchAllWordFromCell(Vector<string>& board, int row, int col, Set<string>& words) {
