@@ -54,24 +54,23 @@ void giveInstructions();
 void playGame();
 void getGameData();
 void shuffleVector(Vector<string>&);
-void drawBoard(Vector<string>);
+void labelBoard(Vector<string>);
 void stringToUpper(string&);
 void getUserInput(Vector<string>&, int&);
-int usersTurn(Vector<string>&);
-int computersTurn(Vector<string>&);
-bool tryWord(Vector<string>&, string, Vector<pair<int, int>>&);
-void findAllWords(Vector<string>&, int&);
-bool dfs(Vector<string>& board, string& target, int index, int row, int col, Vector<pair<int, int>>& path);
 void dfsForBot(Vector<string>&, int, int, string&, Vector<Vector<bool>>&, Set<string>&);
 void searchAllWordFromCell(Vector<string>&, int, int, Set<string>&);
 void findAllWords(Vector<string>&, int&);
+void highlightPath(Vector<pair<int, int>>&);
+void decideWinner(int, int);
+int usersTurn(Vector<string>&);
+int computersTurn(Vector<string>&);
+bool tryWord(Vector<string>&, string, Vector<pair<int, int>>&);
+bool dfs(Vector<string>& board, string& target, int index, int row, int col, Vector<pair<int, int>>& path);
+bool getUsersDecision();
 string getUserData();
 Vector<string> initGame();
 Vector<string> generateRandomBoard();
 Vector<string> generateCustomBoard(string);
-void highlightPath(Vector<pair<int, int>>&);
-void decideWinner(int, int);
-bool getUsersDecision();
 /* Main program */
 const string FILENAME = "EnglishWords.dat";
 Lexicon WORDS(FILENAME);
@@ -257,12 +256,12 @@ Vector<string> initGame() {
 	string userData = getUserData();
 	Vector<string> board = userData.empty() ? generateRandomBoard() : generateCustomBoard(userData);
 	drawBoard(4, 4);
-	drawBoard(board);
+	labelBoard(board);
 	return board;
 }
 
 // Visually draws the board based on state
-void drawBoard(Vector<string> board) {
+void labelBoard(Vector<string> board) {
 	for (int row = 0; row < board.size(); row++) {
 		for (int col = 0; col < board[row].size(); col++) {
 			labelCube(row, col, board[row][col]);
