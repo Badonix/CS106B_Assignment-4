@@ -1,0 +1,6 @@
+﻿  Boggle.cpp
+C:\Users\Nick\Downloads\Assignment4-vs2022\src\Boggle.cpp(136,24): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Nick\Downloads\Assignment4-vs2022\src\Boggle.cpp(143,71): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Nick\Downloads\Assignment4-vs2022\src\Boggle.cpp(199,25): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Nick\Downloads\Assignment4-vs2022\src\Boggle.cpp(301,57): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  Boggle.vcxproj -> C:\Users\Nick\Downloads\Assignment4-vs2022\x64\Debug\Boggle.exe
